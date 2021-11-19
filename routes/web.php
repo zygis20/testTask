@@ -15,8 +15,15 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+
+Route::get('/articles', function () {
+    return view('articles');
+});
+Route::get('/sources', function () {
+    return view('sources');
+});
+Route::get('/favorites', function () {
+    return view('topnews');
 });
 
 
@@ -27,3 +34,8 @@ Route::get('/', function () {
 
 
 
+
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
